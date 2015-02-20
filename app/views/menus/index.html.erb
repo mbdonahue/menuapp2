@@ -1,0 +1,12 @@
+<p id="notice"><%= notice %></p>
+
+<div id="menu-form" style='display: none'></div>
+
+<h1>Listing Menus</h1>
+<h3><%= link_to new_menu_path, remote: true do %>
+        <span class= 'glpyhicon glyphicon-pencil'></span> New Menu
+        <%end%>
+ </h3>
+
+
+<%=render @menus%>

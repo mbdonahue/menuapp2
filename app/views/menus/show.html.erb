@@ -1,0 +1,28 @@
+<h1>Menu Items</h1>
+
+
+<div class='row'>
+
+    <% @items.each do |item| %>
+      <div class='col-md-4'>
+    <div class='well'>
+        <h2><%= item.name %></h2>
+        <h3><%= number_to_currency(item.price) %></h3>
+        <h4><%= item.menu.meal %></h4>
+        <h4><%= item.description %></h4>
+        <h4><%= item.menu_category %></h4>
+        <h4><%= item.menu_tag %></h4>
+        <p><%= link_to 'Show', item %>
+        <%= link_to 'Edit', edit_item_path(item) %>
+        <%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+    </div>
+  </div>
+    <% end %>
+</div>
+<br>
+
+<%= link_to 'New Item', new_item_path %>
+
+
+<%= link_to 'Edit', edit_menu_path(@menu) %> |
+<%= link_to 'Back', menus_path %>
