@@ -14,7 +14,9 @@
   <strong>Menu:</strong>
   <%= @item.menu.meal %>
 </p>
-
+<p>
+  <%= image_tag @item.avatar.url(:thumb) %>
+</p>
 <p>
   <strong>Description:</strong>
   <%= @item.description %>

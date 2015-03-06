@@ -1,5 +1,6 @@
 <h1>Menu Items</h1>
 
+<%= link_to 'Destroy', @menu, method: :delete, data: { confirm: 'Are you sure?' } %>
 
 <div class='row'>
 
@@ -12,6 +13,7 @@
         <h4><%= item.description %></h4>
         <h4><%= item.menu_category %></h4>
         <h4><%= item.menu_tag %></h4>
+        <p><%= image_tag item.avatar.url(:thumb) %></p>
         <p><%= link_to 'Show', item %>
         <%= link_to 'Edit', edit_item_path(item) %>
         <%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></p>

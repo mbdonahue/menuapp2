@@ -2,10 +2,15 @@
 	
 <h3><%= link_to menu.meal, menu %></h3>
 
+<p><%= link_to 'Delete', menu_path(menu), method: :delete, data: { confirm: 'Are you sure?' } %></p>
+
+
+	<div class = 'row'>
 		<% menu.items.each do | i | %>
-			<div class='col-sm-3'>
+			<div class='col-md-2'>
 				<div class="well">
 				<p><strong><%= link_to i.name, i %></strong>&nbsp;<%= number_to_currency(i.price) %> </p>
 				</div>
 			</div>
 		<%end%>
+	</div>

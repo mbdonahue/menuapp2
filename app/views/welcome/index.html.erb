@@ -1,0 +1,74 @@
+
+<div class = 'jumbrotron'>
+	<div class = 'container-fluid'>
+
+<h1 class = 'header-text'>BON APPETIT</h1>
+<h4 class = 'header-text'>A new way to find your perfect meal.</h4> <br />
+
+<div class = 'header-row'>
+    <div class="btn-group">
+          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+            Plate Category <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" role="menu">
+            <% @items.each do |list|%>
+            <li><%= list.name %></li>
+            <%end%>
+          </ul>
+    </div>
+
+    <div class="btn-group">
+          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+            Cuisine <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" role="menu">
+            <% @restaurants.each do |list|%>
+            <li><%= list.cuisine %></li>
+            <%end%>
+          </ul>
+    </div>
+
+    <div class="btn-group">
+          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+            Neighborhood <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" role="menu">
+            <% @restaurants.each do |list|%>
+            <li><%= list.neighborhood %></li>
+            <%end%>
+          </ul>
+    </div>
+
+    <div class="btn-group find">
+          <button type="button" class="btn btn-success">
+            Find! </button>
+
+    </div>
+
+</div>
+</div>
+</div>
+
+
+
+	<div class = 'row'>
+		<% @restaurants.each do | r | %>
+			<div class='col-md-2'>
+				<div class="well">
+				<p><strong><%= link_to r.neighborhood, r %></strong> </p>
+				</div>
+			</div>
+		<%end%>
+	</div>
+
+<table>
+  <tbody>
+    <% @restaurants.each do |restaurant| %>
+      <tr>
+        <td><%= restaurant.restaurant_name %></td>
+        <td><%= restaurant.neighborhood %></td>
+        <td><%= restaurant.cuisine %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

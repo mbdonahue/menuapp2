@@ -1,12 +1,13 @@
 class MenusController < ApplicationController
   before_action :all_menus, only: [:index, :show, :edit, :create, :update, :destroy]
   before_action :set_menu, only: [:show, :edit, :update, :destroy]
-  before_filter :authenticate_user!, :except => [:index, :show]
+  before_filter :authenticate_user!, :except => [:index, :show, :pix]
 
   # GET /menus
   # GET /menus.json
   def index
     @menus = Menu.all
+    @items = Item.all
   end
 
   # GET /menus/1
@@ -28,7 +29,7 @@ class MenusController < ApplicationController
   # POST /menus.json
    def create
     @menu = Menu.create(menu_params)
-    redirect_to root_path
+    redirect_to menu_path(id: @menu.id)
   end
 
   # PATCH/PUT /menus/1
@@ -40,10 +41,7 @@ class MenusController < ApplicationController
   # DELETE /menus/1.json
   def destroy
     @menu.destroy
-    respond_to do |format|
-      format.html { redirect_to menus_url, notice: 'Menu was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to menus_path
   end
 
   private
